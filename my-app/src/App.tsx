@@ -13,7 +13,7 @@ const initialTodos: Todo[] = [
   },
 ];
 
-function App() {
+function App() {  
   const [todos, setTodos] = useState(initialTodos);
 
   const toggleTodo: ToggleTodo = (selectedTodo: Todo) => {
@@ -31,7 +31,7 @@ function App() {
 
   const addTodo: AddTodo = (text: string) => {
     const newTodo = { text, complete: false };
-    setTodos([...todos, newTodo]);
+    setTodos([...todos, newTodo]); 
   };
 
   return (

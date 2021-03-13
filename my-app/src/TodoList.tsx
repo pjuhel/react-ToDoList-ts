@@ -6,7 +6,10 @@ interface Props {
   toggleTodo: ToggleTodo;
 }
 
-export const TodoList: React.FC<Props> = ({ todos, toggleTodo }) => {
+export const TodoList: React.FC<Props> = ( param ) => {
+  const todos      = param.todos     ;
+  const toggleTodo = param.toggleTodo;
+  
   return (
     <ul>
       {todos.map(todo => (
