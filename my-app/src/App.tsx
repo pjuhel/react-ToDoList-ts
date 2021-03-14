@@ -6,10 +6,12 @@ const initialTodos: Todo[] = [
   {
     text: 'Walk the dog',
     complete: false,
+    id: 'test1' + new Date().getTime(),
   },
   {
     text: 'Write app',
     complete: true,
+    id: 'test2' + new Date().getTime(),
   },
 ];
 
@@ -30,13 +32,19 @@ function App() {
   };
 
   const addTodo: AddTodo = (text: string) => {
-    const newTodo = { text, complete: false };
+    const id = text + new Date().getTime()
+    const newTodo = { text, complete: false, id: id };
     setTodos([...todos, newTodo]); 
+  };
+
+  const deleteTodo: DeleteTodo = (todoId: string) => {
+    const newTodo = todos.filter(selectedItem => selectedItem.id !== todoId)
+    setTodos(newTodo);
   };
 
   return (
     <>
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
       <AddTodoForm addTodo={addTodo} />
     </>
   );
